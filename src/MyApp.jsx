@@ -5,6 +5,8 @@ import { BarChart, LineChart } from "@ui5/webcomponents-react-charts";
 import "@ui5/webcomponents-icons/dist/icons/line-chart.js";
 import "@ui5/webcomponents-icons/dist/icons/horizontal-bar-chart.js";
 
+// Next (Build a Single Page Application Using UI5 Web Components for React - developers.sap.com) - Tutorial 4 of 6
+
 export function MyApp() {
     const [loading, setLoading] = useState(false);
     const [toggleCharts, setToggleCharts] = useState("lineChart");
