@@ -1,6 +1,7 @@
 import React from "react";
 import { Card, Text } from "@ui5/webcomponents-react";
 import { spacing } from "@ui5/webcomponents-react-base";
+import { BarChart, LineChart } from "@ui5/webcomponents-react-charts";
 
 export function MyApp() {
     const handleHeaderClick = () => {
