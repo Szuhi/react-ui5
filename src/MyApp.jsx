@@ -25,6 +25,9 @@ export function MyApp() {
         }
     }
 
+    const contentTitle = toggleCharts === 'lineChart' ? 'Line Chart' : 'Bar Chart';
+    const switchToChart = toggleCharts === 'lineChart' ? 'Bar Chart' : 'Line Chart';
+
     const dataset = [
         {
             month: "January",
@@ -60,12 +63,13 @@ export function MyApp() {
         <div>
             <Card 
                 avatar={ <Icon name={ toggleCharts === "lineChart" ? "line-chart" : "horizontal-bar-chart" } />}
-                heading="Card" 
+                heading="Stock Price" 
                 style={{ width: "300px" }} 
                 headerInteractive
-                onHeaderClick={handleHeaderClick}>
+                onHeaderClick={handleHeaderClick}
+                subheading={'Click here to switch to ${switchToChart}'}>
                 <Text style={spacing.sapUiContentPadding}>
-                    This is the content area of the Card
+                    {contentTitle}
                 </Text>
                 {toggleCharts === "lineChart" ? (
                     <LineChart 
