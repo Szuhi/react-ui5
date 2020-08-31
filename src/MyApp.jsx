@@ -8,6 +8,37 @@ export function MyApp() {
         alert ("Header clicked");
     }
 
+    const dataset = [
+        {
+            month: "January",
+            data: 65
+        },
+        {
+            month: "February",
+            data: 59
+        },
+        {
+            month: "March",
+            data: 80
+        },
+        {
+            month: "April",
+            data: 81
+        },
+        {
+            month: "May",
+            data: 56
+        },
+        {
+            month: "June",
+            data: 55
+        },
+        {
+            month: "July",
+            data: 40
+        }
+    ]
+
     return (
         <div>
             <Card 
@@ -18,6 +49,16 @@ export function MyApp() {
                 <Text style={spacing.sapUiContentPadding}>
                     This is the content area of the Card
                 </Text>
+                <LineChart 
+                    measures={[{ accessor: "month" }]} 
+                    dimensions={[{ accessor: "data", label: "Stock Price" }]}
+                    dataset={dataset} 
+                />
+                <BarChart
+                    measures={[{ accessor: "month" }]} 
+                    dimensions={[{ accessor: "data", label: "Stock Price" }]}
+                    dataset={dataset} 
+                />
             </Card>
         </div>
     )
