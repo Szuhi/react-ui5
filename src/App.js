@@ -11,12 +11,15 @@ import {
 import React from 'react';
 import './App.css';
 import { MyApp } from "./MyApp";
+import { HashRouter } from "react-router-dom";
 
 function App() {
   return (
-    <ThemeProvider>
-      <MyApp />
-    </ThemeProvider>
+    <HashRouter>
+      <ThemeProvider>
+        <MyApp />
+      </ThemeProvider>
+    </HashRouter>
   );
 }
 
