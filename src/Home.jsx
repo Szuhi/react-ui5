@@ -21,6 +21,7 @@ import "@ui5/webcomponents-icons/dist/icons/line-chart.js";
 import "@ui5/webcomponents-icons/dist/icons/horizontal-bar-chart.js";
 import "@ui5/webcomponents-icons/dist/icons/list.js";
 import "@ui5/webcomponents-icons/dist/icons/table-view.js";
+import { useHistory } from "react-router-dom";
 
 export function Home() {
     const [toggleCharts, setToggleCharts] = useState("lineChart");
@@ -44,6 +45,11 @@ export function Home() {
                 setToggleCharts("lineChart");
             }, 2000);
         }
+    };
+
+    const history = useHistory();
+    const handleProgressHeaderClick = () => {
+        history.push("/detail");
     };
 
     const dataset = [
@@ -142,6 +148,8 @@ export function Home() {
                 subheading="List"
                 style={{ width: "300px", ...spacing.sapUiContentPadding }}
                 avatar={<Icon name="list" />}
+                headerInteractive
+                onHeaderClick={handleProgressHeaderClick}
             >
                 <List>
                     <StandardListItem info="Finished" infoState={ValueState.Success}>
