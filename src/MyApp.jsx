@@ -80,6 +80,36 @@ export function MyApp() {
         data: 40
     }];
 
+    const tableData = new Array(500).fill(null).map((_, index) => {
+        return {
+            name: `name${index}`,
+            age: Math.floor(Math.random() * 100),
+            friend: {
+                name: `friend.Name${index}`,
+                age: Math.floor(Math.random() * 100)
+            }
+        };
+    });
+
+    const tableColumns = [
+        {
+            Header: "Name",
+            accessor: "name"
+        },
+        {
+            Header: "Age",
+            accessor: "age"
+        },
+        {
+            Header: "Friend Name",
+            accessor: "friend.name"
+        },
+        {
+            Header: "Friend Age",
+            accessor: "friend.age"
+        }
+    ];
+
     return (
         <div>
             <ShellBar
@@ -120,6 +150,44 @@ export function MyApp() {
                 style={{ width: "300px" }}
                 avatar={<Icon name="list" />}
             >
+                <List>
+                    <StandardListItem info="Finished" infoState={ValueState.Success}>
+                        Activity 1
+                    </StandardListItem>
+                    <StandardListItem info="Failed" infoState={ValueState.Error}>
+                        Activity 2
+                    </StandardListItem>
+                    <StandardListItem 
+                        info="In Progress" 
+                        infoState={ValueState.Warning}
+                        style={{ height: "80px" }}
+                    >
+                        <FlexBox direction={FlexBoxDirection.Column}>
+                            <Title level={TitleLevel.H5}>Activity 3</Title><br />
+                            <ProgressIndicator value={89} valueState={ValueState.Success} />
+                        </FlexBox>
+                    </StandardListItem>
+                    <StandardListItem
+                        info="In Progress"
+                        infoState={ValueState.Warning}
+                        style={{ height: "80px" }}
+                    >
+                        <FlexBox direction={FlexBoxDirection.Column}>
+                            <Title level={TitleLevel.H5}>Activity 4</Title><br />
+                            <ProgressIndicator value={5} valueState={ValueState.Error} />
+                        </FlexBox>
+                    </StandardListItem>
+                </List>
+            </Card>
+            <Card
+                heading="Analytical Table" 
+                style={{ width: "900px" }}
+                avatar={<Icon name="table-view" />}
+            >
+                <AnalyticalTable 
+                    data={tableData}
+                    columns={tableColumns}
+                    visibleRows={5}/>
             </Card>
         </div>
   );
