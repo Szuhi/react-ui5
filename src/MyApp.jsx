@@ -5,10 +5,13 @@ import {
     ShellBarItem,
 } from "@ui5/webcomponents-react";
 import "@ui5/webcomponents-icons/dist/icons/add.js";
+import { Switch, Route, Redirect } from "react-router-dom";
+import { Home } from "./Home";
+import { Detail } from "./Detail";
 
 export function MyApp() {
     return (
-        <div>
+        <>
             <ShellBar
                 logo={<img src="logo192.png" />}
                 profile={<Avatar image="" />}
@@ -16,7 +19,11 @@ export function MyApp() {
             >
                 <ShellBarItem icon="add" text="Add" />
             </ShellBar>
-            
-        </div>
-  );
+            <Switch>
+                <Route path="/home" component={Home} />
+                <Route path="/detail" component={Detail} />
+                <Redirect from="/" to="/home" />
+            </Switch>
+        </>
+    );
 }
